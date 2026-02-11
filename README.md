@@ -33,7 +33,18 @@ Claude Code (Mac) → SSE → mcp-proxy (Docker) → stdio → Claude Flow MCP
 
 ## Quick Start
 
-### 1. Start the Container
+### Option A: Use Pre-built Image from Docker Hub (Recommended)
+
+```bash
+# Pull and run
+docker run -d --name claude-flow -p 8080:8080 sauronx2/claude-flow:latest
+
+# Or with docker compose
+curl -O https://raw.githubusercontent.com/sauronx2/claude-flow-docker/main/docker-compose.hub.yml
+docker compose -f docker-compose.hub.yml up -d
+```
+
+### Option B: Build Locally
 
 ```bash
 make start

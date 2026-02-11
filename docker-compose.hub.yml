@@ -1,0 +1,21 @@
+# Use pre-built image from Docker Hub
+# Usage: docker compose -f docker-compose.hub.yml up -d
+
+services:
+  claude-flow:
+    image: sauronx2/claude-flow:latest
+    container_name: claude-flow
+    ports:
+      - "8080:8080"
+    volumes:
+      - claude-flow-db:/root/.claude-flow
+      - node-modules-cache:/root/.npm
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+
+volumes:
+  claude-flow-db:
+    driver: local
+  node-modules-cache:
+    driver: local
